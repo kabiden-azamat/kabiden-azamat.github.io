@@ -6,5 +6,5 @@
  * Time: 0:10
  */
 
-echo 'test';
-// test
+require_once 'application/autoLoad.php';
+
