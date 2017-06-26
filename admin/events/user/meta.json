@@ -1,0 +1,5 @@
+{
+    "module": "user",
+    "module_name": "admin.user.module_name",
+    "system": false
+}

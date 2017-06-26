@@ -1,0 +1,15 @@
+{
+    "module": "index",
+    "module_name": "admin.index.module_name",
+    "system": false,
+    "menuItems": [
+        {
+            "name": "admin.index.menu_test",
+            "url": "index"
+        },
+        {
+            "name": "admin.index.menu_test2",
+            "url": "test"
+        }
+    ]
+}

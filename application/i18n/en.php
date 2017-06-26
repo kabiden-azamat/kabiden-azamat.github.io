@@ -9,5 +9,10 @@
 
 return [
     'add' => 'Add',
-    'remove' => 'Remove'
+    'remove' => 'Remove',
+    'login' => 'Login',
+    'username' => 'Username',
+    'password' => 'Password',
+    'register' => 'Register',
+    'navigation' => 'Navigation'
 ];

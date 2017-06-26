@@ -19,11 +19,15 @@ class Core extends Singleton {
 
     public static function run() {
         ob_start();
-        ini_set('display_errors', 'on');
+       
+        
+        /*ini_set('display_errors', 'on');
         $oErrorHandler = new ErrorHandler();
-        $oErrorHandler->register();
+        $oErrorHandler->register();*/
 
         Config::LoadFromFile('./application/configs/config.php');
+
+        DB::init( Config::get('db') );
 
         if(Config::get('lang.use')) {
             $sLang = self::getRouter()->getLang();
@@ -36,15 +40,27 @@ class Core extends Singleton {
         }
 
         $sModuleName = Core::getRouter()->getAction();
-        $sModulePath = Config::get('module.dir') . strtolower($sModuleName) . DIRECTORY_SEPARATOR . 'Module' . ucfirst($sModuleName) . '.php';
-        if(file_exists($sModulePath)) {
-            include_once $sModulePath;
-            $sModuleName = 'Module'.ucfirst($sModuleName);
-            if(class_exists($sModuleName)) {
-                $sModule = new $sModuleName($sModuleName);
+        if($sModuleName == Config::get('admin.action')) {
+            $sModulePath = Config::get('admin.dir') . 'index.php';
+            if(file_exists($sModulePath)) {
+                include_once $sModulePath;
+                if(class_exists('Admin')) {
+                    $oModule = new Admin();
+                }
+            } else {
+                Func::page404();
             }
         } else {
-            Func::page404();
+            $sModulePath = Config::get('module.dir') . strtolower($sModuleName) . DIRECTORY_SEPARATOR . 'Module' . ucfirst($sModuleName) . '.php';
+            if (file_exists($sModulePath)) {
+                include_once $sModulePath;
+                $sModule = 'Module' . ucfirst($sModuleName);
+                if (class_exists($sModule)) {
+                    $oModule = new $sModule($sModuleName);
+                }
+            } else {
+                Func::page404();
+            }
         }
     }
 

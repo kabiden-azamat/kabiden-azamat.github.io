@@ -9,5 +9,10 @@
 
 return [
     'add' => 'Добавить',
-    'remove' => 'Удалить'
+    'remove' => 'Удалить',
+    'login' => 'Войти',
+    'username' => 'Логин',
+    'password' => 'Пароль',
+    'register' => 'Регистрация',
+    'navigation' => 'Навигация'
 ];

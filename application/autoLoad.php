@@ -7,6 +7,7 @@
  */
 
 define ('DIR_SEP', DIRECTORY_SEPARATOR);
+define ('WEB_SEP', '/');
 define ('DIR_ROOT', $_SERVER['DOCUMENT_ROOT'] . DIR_SEP);
 
 if (version_compare(PHP_VERSION, '5.5', '<')) {

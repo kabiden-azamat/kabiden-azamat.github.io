@@ -6,5 +6,6 @@
  * Time: 0:10
  */
 
+session_start();
 require_once 'application/autoLoad.php';
 

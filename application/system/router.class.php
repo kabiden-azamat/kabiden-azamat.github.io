@@ -29,10 +29,10 @@ class Router {
         $this->sAction = array_shift($this->aParams);
         $this->sActionEvent = array_shift($this->aParams);
 
-        if($this->getAction() == 'admin') {
+        /*if($this->getAction() == 'admin') {
             $this->getMetaData();
             $this->initWidgets();
-        }
+        }*/
     }
 
     public function getLang() {
